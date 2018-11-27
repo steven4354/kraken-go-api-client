@@ -68,6 +68,10 @@ const (
 	QTUMEUR = "QTUMEUR"
 	QTUMUSD = "QTUMUSD"
 	QTUMXBT = "QTUMXBT"
+	ADAETH = "ADAETH"
+	ADAEUR = "ADAEUR"
+	ADAUSD = "ADAUSD"
+	ADAXBT = "ADAXBT"
 )
 
 const (
@@ -161,6 +165,10 @@ type AssetPairsResponse struct {
 	QTUMEUR AssetPairInfo
 	QTUMUSD AssetPairInfo
 	QTUMXBT AssetPairInfo
+	ADAETH AssetPairInfo
+	ADAEUR AssetPairInfo
+	ADAUSD AssetPairInfo
+	ADAXBT AssetPairInfo
 }
 
 // AssetPairInfo represents asset pair information
@@ -230,6 +238,7 @@ type AssetsResponse struct {
 	ZUSD AssetInfo
 	XTZ AssetInfo
 	QTUM AssetInfo
+	ADA AssetInfo
 }
 
 // AssetInfo represents an asset information
@@ -275,6 +284,7 @@ type BalanceResponse struct {
 	ZKRW float64 `json:"ZKRW,string"`
 	ZUSD float64 `json:"ZUSD,string"`
 	QTUM float64 `json:"QTUM,string"`
+	ADA float64 `json:"ADA,string"`
 }
 
 // TickerResponse includes the requested ticker pairs
@@ -344,6 +354,10 @@ type TickerResponse struct {
 	QTUMEUR PairTickerInfo
 	QTUMUSD PairTickerInfo
 	QTUMXBT PairTickerInfo
+	ADAETH PairTickerInfo
+	ADAEUR PairTickerInfo
+	ADAUSD PairTickerInfo
+	ADAXBT PairTickerInfo
 }
 
 // GetPairTickerInfo is a helper method that returns given `pair`'s `PairTickerInfo`
