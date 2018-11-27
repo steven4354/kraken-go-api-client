@@ -147,6 +147,10 @@ type AssetPairsResponse struct {
 	XZECXXBT AssetPairInfo
 	XZECZEUR AssetPairInfo
 	XZECZUSD AssetPairInfo
+	XTZCAD AssetPairInfo
+	XTZEUR AssetPairInfo
+	XTZUSD AssetPairInfo
+	XTZXBT AssetPairInfo
 }
 
 // AssetPairInfo represents asset pair information
@@ -214,6 +218,7 @@ type AssetsResponse struct {
 	ZJPY AssetInfo
 	ZKRW AssetInfo
 	ZUSD AssetInfo
+	XTZ AssetInfo
 }
 
 // AssetInfo represents an asset information
@@ -230,6 +235,7 @@ type AssetInfo struct {
 
 type BalanceResponse struct {
 	BCH  float64 `json:"BCH,string"`
+	XTZ float64 `json:"ZUSD,string"`
 	BSV  float64 `json:"BSV,string"`
 	DASH float64 `json:"DASH,string"`
 	EOS  float64 `json:"EOS,string"`
@@ -317,6 +323,10 @@ type TickerResponse struct {
 	XZECXXBT PairTickerInfo
 	XZECZEUR PairTickerInfo
 	XZECZUSD PairTickerInfo
+	XTZCAD PairTickerInfo
+	XTZEUR PairTickerInfo
+	XTZUSD PairTickerInfo
+	XTZXBT PairTickerInfo
 }
 
 // GetPairTickerInfo is a helper method that returns given `pair`'s `PairTickerInfo`
