@@ -39,10 +39,5 @@ func main() {
 }
 ```
 
-## Contributors
- - Piega
- - Glavic
- - MarinX
- - bjorand
- - [khezen](https://github.com/khezen)
- 
+## Source
+https://github.com/beldur/kraken-go-api-client
