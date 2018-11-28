@@ -10,6 +10,9 @@ const (
 	BCHEUR   = "BCHEUR"
 	BCHUSD   = "BCHUSD"
 	BCHXBT   = "BCHXBT"
+	BSVEUR   = "BCHEUR"
+	BSVUSD   = "BCHUSD"
+	BSVXBT   = "BCHXBT"
 	DASHEUR  = "DASHEUR"
 	DASHUSD  = "DASHUSD"
 	DASHXBT  = "DASHXBT"
@@ -210,6 +213,7 @@ type AssetPairInfo struct {
 // AssetsResponse includes asset informations
 type AssetsResponse struct {
 	BCH  AssetInfo
+	BSV AssetInfo
 	DASH AssetInfo
 	EOS  AssetInfo
 	GNO  AssetInfo
@@ -255,8 +259,8 @@ type AssetInfo struct {
 
 type BalanceResponse struct {
 	BCH  float64 `json:"BCH,string"`
-	XTZ float64 `json:"ZUSD,string"`
 	BSV  float64 `json:"BSV,string"`
+	XTZ float64 `json:"ZUSD,string"`
 	DASH float64 `json:"DASH,string"`
 	EOS  float64 `json:"EOS,string"`
 	GNO  float64 `json:"GNO,string"`
@@ -292,6 +296,9 @@ type TickerResponse struct {
 	BCHEUR   PairTickerInfo
 	BCHUSD   PairTickerInfo
 	BCHXBT   PairTickerInfo
+	BSVEUR   PairTickerInfo
+	BSVUSD   PairTickerInfo
+	BSVXBT   PairTickerInfo
 	DASHEUR  PairTickerInfo
 	DASHUSD  PairTickerInfo
 	DASHXBT  PairTickerInfo
