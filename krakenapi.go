@@ -1,7 +1,7 @@
 package krakenapi
 
 import (
-	"log"
+	// "log"
 	"crypto/hmac"
 	"crypto/sha256"
 	"crypto/sha512"
