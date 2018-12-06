@@ -1,6 +1,7 @@
 package krakenapi
 
 import (
+	"log"
 	"crypto/hmac"
 	"crypto/sha256"
 	"crypto/sha512"
@@ -82,6 +83,9 @@ const (
 	MinimumXLM  = 300.0
 	MinimumZEC  = 0.02
 	MinimumUSDT = 5.0
+	MinimumADA  = 159.0
+	MinimumXTZ  = 26.0
+	MinimumBSV  = 0.12
 )
 
 // KrakenApi represents a Kraken API Client connection

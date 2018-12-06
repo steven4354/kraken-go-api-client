@@ -228,6 +228,7 @@ type AssetsResponse struct {
 	XNMC AssetInfo
 	XREP AssetInfo
 	XXBT AssetInfo
+	XBT AssetInfo
 	XXDG AssetInfo
 	XXLM AssetInfo
 	XXMR AssetInfo
@@ -240,6 +241,7 @@ type AssetsResponse struct {
 	ZJPY AssetInfo
 	ZKRW AssetInfo
 	ZUSD AssetInfo
+	USD AssetInfo
 	XTZ AssetInfo
 	QTUM AssetInfo
 	ADA AssetInfo
@@ -260,7 +262,7 @@ type AssetInfo struct {
 type BalanceResponse struct {
 	BCH  float64 `json:"BCH,string"`
 	BSV  float64 `json:"BSV,string"`
-	XTZ float64 `json:"ZUSD,string"`
+	XTZ float64 `json:"XTZ,string"`
 	DASH float64 `json:"DASH,string"`
 	EOS  float64 `json:"EOS,string"`
 	GNO  float64 `json:"GNO,string"`
@@ -275,6 +277,7 @@ type BalanceResponse struct {
 	XNMC float64 `json:"XNMC,string"`
 	XREP float64 `json:"XREP,string"`
 	XXBT float64 `json:"XXBT,string"`
+	XBT float64 `json:"XBT,string"`
 	XXDG float64 `json:"XXDG,string"`
 	XXLM float64 `json:"XXLM,string"`
 	XXMR float64 `json:"XXMR,string"`
