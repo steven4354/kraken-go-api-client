@@ -208,6 +208,15 @@ func (api *KrakenApi) Balance() (*BalanceResponse, error) {
 	return resp.(*BalanceResponse), nil
 }
 
+func (api *KrakenApi) TradeBalance() (*BalanceResponse, error) {
+	resp, err := api.queryPrivate("TradeBalance", url.Values{}, &BalanceResponse{})
+	if err != nil {
+		return nil, err
+	}
+
+	return resp.(*BalanceResponse), nil
+}
+
 // OpenOrders returns all open orders
 func (api *KrakenApi) OpenOrders(args map[string]string) (*OpenOrdersResponse, error) {
 	params := url.Values{}
