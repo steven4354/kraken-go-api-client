@@ -408,6 +408,7 @@ func (api *KrakenApi) queryPrivate(method string, values url.Values, typ interfa
 	headers := map[string]string{
 		"API-Key":  api.key,
 		"API-Sign": signature,
+		"Content-Type": "application/json",
 	}
 
 	resp, err := api.doRequest(reqURL, values, headers, typ)
