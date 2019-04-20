@@ -408,7 +408,7 @@ func (api *KrakenApi) queryPrivate(method string, values url.Values, typ interfa
 	headers := map[string]string{
 		"API-Key":  api.key,
 		"API-Sign": signature,
-		"Content-Type": "application/json",
+		//"Content-Type": "application/json",
 	}
 
 	resp, err := api.doRequest(reqURL, values, headers, typ)
@@ -426,6 +426,8 @@ func (api *KrakenApi) doRequest(reqURL string, values url.Values, headers map[st
 	}
 
 	req.Header.Add("User-Agent", APIUserAgent)
+	//req.Header.Add("Content-Type", "application/json")
+
 	for key, value := range headers {
 		req.Header.Add(key, value)
 	}
@@ -449,6 +451,7 @@ func (api *KrakenApi) doRequest(reqURL string, values url.Values, headers map[st
 		return nil, fmt.Errorf("Could not execute request #4! (%s)", err.Error())
 	}
 	if mimeType != "application/json" {
+		fmt.Sprintf("Could not execute request #5! response body %v", body)
 		return nil, fmt.Errorf("Could not execute request #5! (%s)", fmt.Sprintf("Response Content-Type is '%s', but should be 'application/json'.", mimeType))
 	}
 
