@@ -41,5 +41,3 @@ func main() {
 
 ## Source
 https://github.com/beldur/kraken-go-api-client
-
-xyz
