@@ -1,6 +1,7 @@
 package krakenapi
 
 import (
+	"bytes"
 	// "log"
 	"crypto/hmac"
 	"crypto/sha256"
@@ -315,6 +316,27 @@ func (api *KrakenApi) QueryOrders(txids string, args map[string]string) (*QueryO
 	return resp.(*QueryOrdersResponse), nil
 }
 
+// QueryOrders shows order
+func (api *KrakenApi) GetFeesOfOrder(txid string, args map[string]string) (amount string, currency string, err error) {
+	omapPnt, e := api.QueryOrders(txid, nil)
+	omap := *omapPnt
+
+	if e != nil {
+		return "", "", e
+	}
+
+	if order, ok := omap[txid]; ok {
+		// rfKrakenLog("kraken | order : %+v\n", order)
+		// rfKrakenLog("kraken | order description: %+v\n", order.Description)
+		pair := order.Description.AssetPair
+		feeCurrency := SplitSubN(pair, 3, true)
+		// rfKrakenLog("kraken | feeCurrency: %+v\n", feeCurrency)
+		return FloatToString(order.Fee), feeCurrency, nil
+	}
+
+	return "", "", nil
+}
+
 // AddOrder adds new order
 func (api *KrakenApi) AddOrder(pair string, direction string, orderType string, volume string, args map[string]string) (*AddOrderResponse, error) {
 	params := url.Values{
@@ -507,3 +529,32 @@ func createSignature(urlPath string, values url.Values, secret []byte) string {
 	macSum := getHMacSha512(append([]byte(urlPath), shaSum...), secret)
 	return base64.StdEncoding.EncodeToString(macSum)
 }
+
+func SplitSubN(s string, n int, getEnd bool) string {
+	sub := ""
+	subs := []string{}
+
+	runes := bytes.Runes([]byte(s))
+	l := len(runes)
+	for i, r := range runes {
+		sub = sub + string(r)
+		if (i + 1) % n == 0 {
+			subs = append(subs, sub)
+			sub = ""
+		} else if (i + 1) == l {
+			subs = append(subs, sub)
+		}
+	}
+
+	if getEnd == true {
+		return subs[1]
+	} else {
+		return subs[0]
+	}
+}
+
+func FloatToString(floatNum float64) string {
+	stringType := strconv.FormatFloat(floatNum, 'f', 'g', 64)
+	return stringType
+}
+
